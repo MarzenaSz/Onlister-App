@@ -22,13 +22,23 @@ class OnlisterApp extends React.Component {
 
     // method responsible for removing all items from items array
     handleRemoveItems = () => {
-        // empty the whole item array
+        // update the items state - empty the whole item array
         this.setState(() => ({ items: [] }));
     };
 
     // method responsible for removing a sigle item from items array
-    handleRemoveItem = () => {
+    handleRemoveItem = (itemToRemove) => {
+        // update items state
+        this.setState((prevState) => ({
+            //loop though items array (before the update) filter out the item that has been removed and return brand new array 
+            // without the item that has been removed
+            items: prevState.items.filter((item)=> {
+                // keep all of the items that are not equal to the item that has been removed
+                return itemToRemove !== item;
+            })
+        }));
 
+        
     };
 
     render() {
@@ -41,8 +51,8 @@ class OnlisterApp extends React.Component {
             <div>
                 {/* render Header and pass in some into as props */}
                 <Header title={title} subtitle={subtitle}/>
-                {/* render Shopping List and pass in state and a method as props*/}
-                <ShoppingList items={this.state.items} handleRemoveItems={this.handleRemoveItems} />
+                {/* render Shopping List and pass in state and two methods as props*/}
+                <ShoppingList items={this.state.items} handleRemoveItems={this.handleRemoveItems} handleRemoveItem={this.handleRemoveItem}/>
                 <AddItem />
             </div>
         );
