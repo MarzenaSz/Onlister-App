@@ -6,13 +6,10 @@ import AddItem from './AddItem';
 class OnlisterApp extends React.Component {
 
     state = {
-        //set default items to empty array
-        items: [{
-            shop: "",
-            item: ""
-        }]
+        // set default items to empty array
+        items: ["Item-nr1", "Item-nr2", "Item-nr3"]
     };
-    
+
     // method resposible for adding an item to items array
     handleAddItem = () => {
 
@@ -25,11 +22,12 @@ class OnlisterApp extends React.Component {
 
     // method responsible for removing all items from items array
     handleRemoveItems = () => {
-
+        // empty the whole item array
+        this.setState(() => ({ items: [] }));
     };
 
     // method responsible for removing a sigle item from items array
-    handleRemoveItems = () => {
+    handleRemoveItem = () => {
 
     };
 
@@ -41,8 +39,10 @@ class OnlisterApp extends React.Component {
 
         return (
             <div>
+                {/* render Header and pass in some into as props */}
                 <Header title={title} subtitle={subtitle}/>
-                <ShoppingList />
+                {/* render Shopping List and pass in state and a method as props*/}
+                <ShoppingList items={this.state.items} handleRemoveItems={this.handleRemoveItems} />
                 <AddItem />
             </div>
         );
