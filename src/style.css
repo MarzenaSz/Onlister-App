@@ -1,0 +1,21 @@
+* {
+    /*border: 1px solid rgb(121, 56, 56) !important;*/
+    margin: 5px;
+    padding: 0;
+}
+
+html, body {
+    font-size: 18px;
+    /*text-align: center;*/
+    /* make some space between the letters */
+    letter-spacing: 1px;
+
+}
+
+.title {
+
+}
+
+.subtitle {
+
+}

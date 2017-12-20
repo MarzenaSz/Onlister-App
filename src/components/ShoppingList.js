@@ -8,6 +8,7 @@ const ShoppingList = () => {
                 <ShoppingListItem />
                 <ShoppingListItem />
             <button>Sort</button>
+            <button>Remove All</button>
         </div>
     );
 }

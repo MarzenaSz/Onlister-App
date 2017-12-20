@@ -1,7 +1,12 @@
 import React from 'react';
 
 const ShoppingListItem = () => {
-    return <p>Item</p>
+    return (
+        <div>
+            <span>Item</span>
+            <button>Remove</button>
+        </div>
+    );
 }
 
 export default ShoppingListItem;
