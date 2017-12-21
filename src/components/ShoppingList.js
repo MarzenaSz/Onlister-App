@@ -12,6 +12,7 @@ const ShoppingList = (props) => {
                     // handleRemoveItem method as a props
                     <ShoppingListItem key={`item_${i + 1}`} itemList={item} handleRemoveItem={props.handleRemoveItem}/>
                 ))}
+                
             </ul>
             <button>Sort</button>
             {/* kick off this method on click if there are any items provided */}

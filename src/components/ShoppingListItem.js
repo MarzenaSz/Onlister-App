@@ -5,8 +5,8 @@ const ShoppingListItem = (props) => {
         <div>
             {/* accept item list passed in from ShoppingLIst component as a prop and insert it inside of li element */}
             <li>{props.itemList}</li>
-            {/* */}
-            <button onClick={(event) => {props.handleRemoveItem(props.itemList); }}>Remove</button>
+            {/* remove the item from items list */}
+            <button onClick={(e) => {props.handleRemoveItem(props.itemList); }}>Remove</button>
         </div>
     );
 }

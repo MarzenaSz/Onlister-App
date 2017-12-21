@@ -7,27 +7,34 @@ class OnlisterApp extends React.Component {
 
     state = {
         // set default items to empty array
-        items: ["Item-nr1", "Item-nr2", "Item-nr3"]
-    };
-
-    // method resposible for adding an item to items array
-    handleAddItem = () => {
-
+       items: ["Item-nr1", "Item-nr2", "Item-nr3"]
     };
 
     // method responsible for sorting item in items array
     handleSortItems = () => {
 
     };
+     // method resposible for adding an item to items array
+    handleAddItem = (item) => {
+        // check if item exists
+        if(!item) {
+            return "Enter valid value to add an item";
+        }
+        // check if passed in option already exists
+        else if(this.state.items.indexOf(item) > -1){
+            return "The item under this name already exists";
+
+        }
+    };
 
     // method responsible for removing all items from items array
     handleRemoveItems = () => {
-        // update the items state - empty the whole item array
+        // update the items and shopps state - empty the whole item/shop array
         this.setState(() => ({ items: [] }));
     };
 
     // method responsible for removing a sigle item from items array
-    handleRemoveItem = (itemToRemove) => {
+    handleRemoveItem = (itemToRemove, shopToRemove) => {
         // update items state
         this.setState((prevState) => ({
             //loop though items array (before the update) filter out the item that has been removed and return brand new array 
@@ -36,9 +43,7 @@ class OnlisterApp extends React.Component {
                 // keep all of the items that are not equal to the item that has been removed
                 return itemToRemove !== item;
             })
-        }));
-
-        
+        }));     
     };
 
     render() {
